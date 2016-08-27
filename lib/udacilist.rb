@@ -1,11 +1,12 @@
 class UdaciList
   include UdaciListErrors
-  attr_reader :title, :items
+  attr_reader :title, :items, :priority
 
   def initialize(options={})
     @title = options[:title] || "Untitled List"
     @items = []
     @type = options
+    @priority = options[:priority] || ""
   end
   def add(type, description, options={})
     type = type.downcase
@@ -33,4 +34,15 @@ class UdaciList
       puts "#{position + 1}) #{item.type} #{item.details}"
     end
   end
+  def filter(type)
+    items_with_filtered_type = @items.select {|item| item.type == type}
+    puts "-" * @title.length
+    puts @title
+    puts "-" * @title.length
+    puts "Filtered by #{type}s"
+    puts "-" * @title.length
+    items_with_filtered_type.each_with_index do |item, position|
+      puts "#{position + 1}) #{item.type} #{item.details}"
+    end
+  end  
 end
