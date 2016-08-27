@@ -5,6 +5,7 @@ class UdaciList
   def initialize(options={})
     @title = options[:title] || "Untitled List"
     @items = []
+    @type = options
   end
   def add(type, description, options={})
     type = type.downcase
@@ -29,7 +30,7 @@ class UdaciList
     puts @title
     puts "-" * @title.length
     @items.each_with_index do |item, position|
-      puts "#{position + 1}) #{item.details}"
+      puts "#{position + 1}) #{item.type} #{item.details}"
     end
   end
 end

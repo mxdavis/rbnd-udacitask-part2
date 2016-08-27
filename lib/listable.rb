@@ -31,4 +31,10 @@ module Listable
     end
     return value
   end
+
+  def type
+  	class_name = self.class.name.downcase
+  	class_name.slice! "item"
+  	return class_name
+  end
 end
