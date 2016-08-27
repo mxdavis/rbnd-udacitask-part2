@@ -7,9 +7,7 @@ class TodoItem
     @due = options[:due] ? Date.parse(options[:due]) : options[:due]
     @priority = options[:priority]
   end
-  def format_date
-    @due ? @due.strftime("%D") : "No due date"
-  end
+
   def format_priority
     value = " ⇧" if @priority == "high"
     value = " ⇨" if @priority == "medium"
@@ -19,7 +17,7 @@ class TodoItem
   end
   def details
     format_description(@description) + "due: " +
-    format_date +
+    format_date(due: @due) +
     format_priority
   end
 end
