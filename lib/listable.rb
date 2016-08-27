@@ -7,9 +7,11 @@ module Listable
   def format_date(options={})
   	if options[:due]
       options[:due].strftime("%D")
-    elsif options[:start_date] and options[:end_date]
+    elsif options[:start_date] && options[:end_date]
       dates = @start_date.strftime("%D") if @start_date
       dates << " -- " + @end_date.strftime("%D") if @end_date
+    elsif options[:start_date]
+      dates = options[:start_date].strftime("%D") if @start_date
     else
       return "N/A"
     end
