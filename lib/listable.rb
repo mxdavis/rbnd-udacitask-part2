@@ -27,7 +27,7 @@ module Listable
     elsif !priority
       value = ""
     else
-      raise UdaciListErrors::InvalidPriorityValueError, "not a valid priority"
+      raise UdaciListErrors::InvalidPriorityValue, "not a valid priority"
     end
     return value
   end
