@@ -1,7 +1,7 @@
 require 'bundler/setup'
 require 'chronic'
 require 'colorize'
-# Find a third gem of your choice and add it to your project
+require 'artii'
 require 'date'
 require_relative "lib/listable"
 require_relative "lib/errors"
@@ -46,3 +46,8 @@ new_list.all
 # DEMO FILTER BY ITEM TYPE
 # ------------------------
 new_list.filter("event")
+new_list.all
+new_list.mark_complete(2)
+new_list.all
+new_list.change_list_title("Giving My List A Name")
+new_list.all

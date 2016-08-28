@@ -1,12 +1,12 @@
 class UdaciList
   include UdaciListErrors
-  attr_reader :title, :items, :priority
+  attr_reader :title, :items
 
   def initialize(options={})
     @title = options[:title] || "Untitled List"
     @items = []
-    @type = options
-    @priority = options[:priority] || ""
+    @type = options[:type]
+    @completed_items = []
   end
   def add(type, description, options={})
     type = type.downcase
@@ -19,6 +19,10 @@ class UdaciList
     end
   end
 
+  def change_list_title(new_title)
+    @title = new_title
+  end
+
   def delete(index)
     if index <= @items.count
       @items.delete_at(index - 1)
@@ -26,9 +30,13 @@ class UdaciList
       raise UdaciListErrors::IndexExceedsListSize
     end 
   end
+  def make_title(title)
+    title_ascii = Artii::Base.new 
+    puts title_ascii.asciify(title)
+  end
   def all
     puts "-" * @title.length
-    puts @title
+    puts make_title(@title)
     puts "-" * @title.length
     @items.each_with_index do |item, position|
       puts "#{position + 1}) #{item.type} #{item.details}"
@@ -37,7 +45,7 @@ class UdaciList
   def filter(type)
     items_with_filtered_type = @items.select {|item| item.type == type}
     puts "-" * @title.length
-    puts @title
+    puts make_title(@title)
     puts "-" * @title.length
     puts "Filtered by #{type}s"
     puts "-" * @title.length
@@ -45,4 +53,8 @@ class UdaciList
       puts "#{position + 1}) #{item.type} #{item.details}"
     end
   end  
+  def mark_complete(index)
+     @completed_items << @items.delete_at(index-1)
+  end
+
 end

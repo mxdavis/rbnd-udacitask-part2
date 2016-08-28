@@ -1,13 +1,13 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
-1. What is the gem of your choice and how did you use it?
+1. What is the gem of your choice and how did you use it? artii for titles
 2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+  a) Mark Complete
+  b) Changing list title
 
 # REFLECTIONS
 # -------------------------------------------------------
-1. How long did you spend working on this project?
-2. What was the most rewarding challenge you conquered?
-3. What two additional features did you build? Why?
-4. Where do you still have room to grow?
+1. How long did you spend working on this project? 10 hours
+2. What was the most rewarding challenge you conquered? def type
+3. What two additional features did you build? Why? Complete Items, and changing list title. Complete items would be pointless if did not have to do list, also if we can make a list with no title maybe later on we would want to add a title.
+4. Where do you still have room to grow? i was working on sorting by priority but I couldn't get anything with priority to work because couldn't get item.priority to work
